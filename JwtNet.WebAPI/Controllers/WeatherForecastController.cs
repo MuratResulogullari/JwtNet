@@ -1,3 +1,4 @@
+using JwtNet.WebAPI.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JwtNet.WebAPI.Controllers

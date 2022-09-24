@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gül\\source\\repos\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj": {}
+    "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gül\\source\\repos\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj": {
+    "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gül\\source\\repos\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj",
         "projectName": "JwtNet.WebAPI",
-        "projectPath": "C:\\Users\\gül\\source\\repos\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj",
+        "projectPath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj",
         "packagesPath": "C:\\Users\\gül\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gül\\source\\repos\\JwtNet\\JwtNet.WebAPI\\obj\\",
+        "outputPath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,9 +44,39 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.23.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "Swashbuckle.AspNetCore.Filters": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.23.1, )"
             }
           },
           "imports": [

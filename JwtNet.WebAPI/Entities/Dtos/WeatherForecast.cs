@@ -1,4 +1,4 @@
-namespace JwtNet.WebAPI
+namespace JwtNet.WebAPI.Models.Dtos
 {
     public class WeatherForecast
     {
