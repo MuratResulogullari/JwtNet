@@ -92,6 +92,40 @@ namespace JwtNet.WebAPI.Business.Abstract
             }
         }
 
+        public ResultViewModel GetByToken(string token)
+        {
+            ResultViewModel result = new ResultViewModel();
+            try
+            {
+                using (var _context = new ApplicationContext())
+                {
+                    var refreshToken = _context.RefreshTokens.FirstOrDefault(x => x.Token == token && x.ExpiryDate > DateTime.Now && x.IsActive);
+
+                    if (refreshToken != null)
+                    {
+                        result.IsSuccess = true;
+                        result.Message = "RefreshToken found";
+                        result.Result = refreshToken;
+                    }
+                    else
+                    {
+                        result.IsSuccess = false;
+                        result.Message = "RefreshToken don't found";
+                    }
+                    return result;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                result.Result = ex.Message;
+                result.IsSuccess = false;
+                result.Message = "Server Error";
+                return result;
+            }
+        }
+
         public ResultViewModel GetByUserId(int userId)
         {
             ResultViewModel result = new ResultViewModel();

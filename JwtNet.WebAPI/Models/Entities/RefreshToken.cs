@@ -8,7 +8,6 @@ namespace JwtNet.WebAPI.Models.Entities
         [Required]
         public int UserId { get; set; }
         [Required]
-        [StringLength(256)]
         public string Token { get; set; }
         [Required]
         public DateTime ExpiryDate { get; set; }
