@@ -47,7 +47,7 @@ namespace JwtNet.WebAPI.Business.Abstract
             {
                 using (var _context = new ApplicationContext())
                 {
-                    var user = _context.Users.FirstOrDefault(x => x.Id == id);
+                    var user = _context.Users.FirstOrDefault(x => x.Id == id && x.IsActive);
                     _context.Users.Remove(user);
                     var res = _context.SaveChanges();
                     if (res > 0)
@@ -80,7 +80,7 @@ namespace JwtNet.WebAPI.Business.Abstract
             {
                 using (var _context = new ApplicationContext())
                 {
-                    var user = _context.Users.FirstOrDefault(x => x.Id == id);
+                    var user = _context.Users.FirstOrDefault(x => x.Id == id && x.IsActive);
                     return user;
 
                 }
@@ -89,6 +89,37 @@ namespace JwtNet.WebAPI.Business.Abstract
             {
 
                 throw;
+            }
+        }
+
+        public ResultViewModel GetByUserName(string userName)
+        {
+            ResultViewModel result = new ResultViewModel();
+            try
+            {
+                using (var _context = new ApplicationContext())
+                {
+                    var user = _context.Users.FirstOrDefault(x=>x.UserName==userName && x.IsActive);
+                    if (user!=null)
+                    {
+                        result.IsSuccess = true;
+                        result.Message = "User found.";
+                        result.Result = user;
+                    }
+                    else
+                    {
+                        result.IsSuccess = false;
+                        result.Message = "User not found.";
+                    }
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Result = ex.Message;
+                result.IsSuccess = false;
+                result.Message = "Server Error.";
+                return result;
             }
         }
 
@@ -114,8 +145,6 @@ namespace JwtNet.WebAPI.Business.Abstract
                     }
                     return result;
                 }
-
-
             }
             catch (Exception ex)
             {

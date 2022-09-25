@@ -46,7 +46,7 @@ namespace JwtNet.WebAPI.Business.Abstract
             {
                 using (var _context = new ApplicationContext())
                 {
-                    var user = _context.Roles.FirstOrDefault(x => x.Id == id);
+                    var user = _context.Roles.FirstOrDefault(x => x.Id == id && x.IsActive);
                     _context.Roles.Remove(user);
                     var res = _context.SaveChanges();
                     if (res > 0)
@@ -79,7 +79,7 @@ namespace JwtNet.WebAPI.Business.Abstract
             {
                 using (var _context = new ApplicationContext())
                 {
-                    var user = _context.Roles.FirstOrDefault(x => x.Id == id);
+                    var user = _context.Roles.FirstOrDefault(x => x.Id == id && x.IsActive);
                     return user;
 
                 }

@@ -12,7 +12,7 @@ builder.Services.AddSwaggerGen();
 // this scopped for services  get stand up when app just have run
 builder.Services.AddScoped<IUserService, UserManager>();
 builder.Services.AddScoped<IRoleService, RoleManager>();
-builder.Services.AddScoped<IRefreshTokenService, RefreshManager>();
+builder.Services.AddScoped<IRefreshTokenService, RefreshTokenManager>();
 
 var app = builder.Build();
 
