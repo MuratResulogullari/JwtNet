@@ -42,7 +42,8 @@ namespace JwtNet.WebAPI.Controllers
         /// Get User infromation on claims When user was login
         /// </summary>
         /// <returns></returns>
-        [HttpGet("GetUser"),Authorize]
+        //[Authorize]
+        [HttpGet("GetUser")]
         public ActionResult<string> GetUser()
         {
             var userName = _currentUser.GetUserName();
