@@ -9,9 +9,7 @@ namespace JwtNet.WebAPI.Business
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer("Data Source=localhost; Initial Catalog=Application; User Id=sa; Password=sa@123");
-
         }
-
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }

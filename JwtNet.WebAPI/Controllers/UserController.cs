@@ -38,6 +38,10 @@ namespace JwtNet.WebAPI.Controllers
             _refreshTokenService = refreshTokenService;
             _currentUser = currentUser;
         }
+        /// <summary>
+        /// Get User infromation on claims When user was login
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("GetUser"),Authorize]
         public ActionResult<string> GetUser()
         {
@@ -45,7 +49,7 @@ namespace JwtNet.WebAPI.Controllers
             return Ok(userName);
         }
         /// <summary>
-        /// User Login Progress For Authoriza and Authentication
+        /// User Login Progress For Authoriz and Authentication
         /// </summary>
         /// <param name="loginViewModel"></param>
         /// <returns></returns>

@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JwtNet.WebAPI.Controllers
 {
-    
     [ApiController]
     [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase

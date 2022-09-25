@@ -13,7 +13,5 @@ namespace JwtNet.WebAPI.Models.Entities
         public DateTime ExpiryDate { get; set; }
         [Required]
         public int TokenType { get; set; }
-
-        
     }
 }
