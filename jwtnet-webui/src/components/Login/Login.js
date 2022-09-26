@@ -16,10 +16,23 @@ export default function Login({ setToken, loginUser, history, ...props }) {
     /** async function for request wepapi for login */
     async function loginUser(user) {
         var requestInit = {
-            method: "POST",
-            headers: { "content-type": "application/json" },
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': 'origin-list'
+            },
             body: JSON.stringify(user) // Then request is string
         }
+        // fetch('https://localhost:7088/api/User/Login', requestInit)
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         console.log('Success:', data);
+        //     })
+        //     .catch((error) => {
+        //         console.error('Error:', error);
+        //     });
         return fetch('https://localhost:7088/api/User/Login', requestInit)
             .then(handleResponse).catch(handleError);
     }
@@ -29,11 +42,12 @@ export default function Login({ setToken, loginUser, history, ...props }) {
         if (response.ok) {
             return response.json();
         }
-        const error = await response.text()
+        const error = await response.text();
         throw new Error(error);
     }
     function handleError(error) {
         console.error("Resulted error : " + error);
+        setErrors(previousErrors => ({ ...previousErrors, loginError: error }));
         throw error;
     }
     /**End Errors  */
@@ -67,11 +81,12 @@ export default function Login({ setToken, loginUser, history, ...props }) {
         e.preventDefault();
         console.log(user);
         const token = await loginUser({
-            "UserName": user.username,
-            "Password": user.password
+            "userName": user.username,
+            "password": user.password
         });
         console.log(token);
         setToken(token);
+        window.location.href = '/dashBoard';
 
     }
     /** Get view in here */

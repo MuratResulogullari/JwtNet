@@ -55,7 +55,7 @@ namespace JwtNet.WebAPI.Controllers
         /// <param name="loginViewModel"></param>
         /// <returns></returns>
         [HttpPost("Login")]
-        public async Task<ActionResult<string>> Login(LoginViewModel loginViewModel)
+        public async Task<ActionResult<string>> Login([FromBody]LoginViewModel loginViewModel)
         {
             var result = _userService.GetByUserName(loginViewModel.UserName);
             if (!result.IsSuccess)
