@@ -14,44 +14,35 @@ export default function Login({ setToken, loginUser, history, ...props }) {
     );
 
     /** async function for request wepapi for login */
-    async function loginUser(user) {
+    async function loginUser() {
         var requestInit = {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Origin': 'origin-list'
+
             },
             body: JSON.stringify(user) // Then request is string
         }
-        // fetch('https://localhost:7088/api/User/Login', requestInit)
-        //     .then((response) => response.json())
-        //     .then((data) => {
-        //         console.log('Success:', data);
-        //     })
-        //     .catch((error) => {
-        //         console.error('Error:', error);
-        //     });
-        return fetch('https://localhost:7088/api/User/Login', requestInit)
-            .then(handleResponse).catch(handleError);
-    }
+        fetch('https://localhost:7088/api/User/Login', requestInit)
+            .then((response) => response.json())
+            .then((data) => {
+                if (!data.isSuccess) {
+                    console.error('Error:', data.message);
+                    setErrors(previousErrors => ({ ...previousErrors, loginError: data.message }));
+                    return 0;
+                }
+                else {
+                    setToken(data);
+                    return 1;
+                }
 
-    /** Response Error Controller */
-    async function handleResponse(response) {
-        if (response.ok) {
-            return response.json();
-        }
-        const error = await response.text();
-        throw new Error(error);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
-    function handleError(error) {
-        console.error("Resulted error : " + error);
-        setErrors(previousErrors => ({ ...previousErrors, loginError: error }));
-        throw error;
-    }
-    /**End Errors  */
-
     /** form elements event for preparete login form  */
     function handleChange(event) {
         const { name, value } = event.target;
@@ -79,14 +70,12 @@ export default function Login({ setToken, loginUser, history, ...props }) {
     }
     const handleLogin = async e => {
         e.preventDefault();
-        console.log(user);
-        const token = await loginUser({
-            "userName": user.username,
-            "password": user.password
-        });
-        console.log(token);
-        setToken(token);
-        window.location.href = '/dashBoard';
+        const result = await loginUser();
+        console.log(result);
+        if (result) {
+            window.location.href = '/home';
+        }
+
 
     }
     /** Get view in here */
@@ -97,17 +86,3 @@ export default function Login({ setToken, loginUser, history, ...props }) {
 Login.propTypes = {
     setToken: PropTypes.func.isRequired
 };
-// function mapStateToProps(state) {
-
-//     return {
-//         user: state.user
-//     }
-// }
-// const mapDispatchToProps = {
-//     loginUser,
-// }
-// export default connect(mapStateToProps, mapDispatchToProps)(Login);
-
-// Login.propTypes = {
-//     setToken: PropTypes.func.isRequired
-// };
