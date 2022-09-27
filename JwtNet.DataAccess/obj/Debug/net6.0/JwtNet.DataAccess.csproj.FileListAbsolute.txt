@@ -1,0 +1,15 @@
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\obj\Debug\net6.0\JwtNet.DataAccess.csproj.AssemblyReference.cache
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\obj\Debug\net6.0\JwtNet.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\obj\Debug\net6.0\JwtNet.DataAccess.AssemblyInfoInputs.cache
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\obj\Debug\net6.0\JwtNet.DataAccess.AssemblyInfo.cs
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\obj\Debug\net6.0\JwtNet.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\bin\Debug\net6.0\JwtNet.DataAccess.deps.json
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\bin\Debug\net6.0\JwtNet.DataAccess.dll
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\bin\Debug\net6.0\JwtNet.DataAccess.pdb
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\bin\Debug\net6.0\JwtNet.Entities.dll
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\bin\Debug\net6.0\JwtNet.Entities.pdb
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\obj\Debug\net6.0\JwtNet.DataAccess.csproj.CopyComplete
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\obj\Debug\net6.0\JwtNet.DataAccess.dll
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\obj\Debug\net6.0\refint\JwtNet.DataAccess.dll
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\obj\Debug\net6.0\JwtNet.DataAccess.pdb
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\obj\Debug\net6.0\ref\JwtNet.DataAccess.dll

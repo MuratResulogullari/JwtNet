@@ -1102,6 +1102,44 @@
             "rid": "win"
           }
         }
+      },
+      "JwtNet.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "JwtNet.DataAccess": "1.0.0",
+          "JwtNet.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/JwtNet.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/JwtNet.Business.dll": {}
+        }
+      },
+      "JwtNet.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "JwtNet.Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.9"
+        },
+        "compile": {
+          "bin/placeholder/JwtNet.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/JwtNet.DataAccess.dll": {}
+        }
+      },
+      "JwtNet.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/JwtNet.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/JwtNet.Entities.dll": {}
+        }
       }
     }
   },
@@ -2873,17 +2911,33 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "JwtNet.Business/1.0.0": {
+      "type": "project",
+      "path": "../JwtNet.Business/JwtNet.Business.csproj",
+      "msbuildProject": "../JwtNet.Business/JwtNet.Business.csproj"
+    },
+    "JwtNet.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../JwtNet.DataAccess/JwtNet.DataAccess.csproj",
+      "msbuildProject": "../JwtNet.DataAccess/JwtNet.DataAccess.csproj"
+    },
+    "JwtNet.Entities/1.0.0": {
+      "type": "project",
+      "path": "../JwtNet.Entities/JwtNet.Entities.csproj",
+      "msbuildProject": "../JwtNet.Entities/JwtNet.Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "JwtNet.Business >= 1.0.0",
+      "JwtNet.Entities >= 1.0.0",
       "Microsoft.AspNet.Cors >= 5.2.9",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.9",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.9",
       "Microsoft.EntityFrameworkCore >= 6.0.9",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.9",
       "Microsoft.EntityFrameworkCore.Relational >= 6.0.9",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.9",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.9",
       "Microsoft.IdentityModel.Tokens >= 6.23.1",
       "Swashbuckle.AspNetCore >= 6.2.3",
@@ -2898,11 +2952,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj",
+      "projectUniqueName": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj",
       "projectName": "JwtNet.WebAPI",
-      "projectPath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj",
+      "projectPath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj",
       "packagesPath": "C:\\Users\\gül\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\obj\\",
+      "outputPath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2922,7 +2976,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Business\\JwtNet.Business.csproj": {
+              "projectPath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Business\\JwtNet.Business.csproj"
+            },
+            "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj": {
+              "projectPath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -2958,10 +3019,6 @@
             "version": "[6.0.9, )"
           },
           "Microsoft.EntityFrameworkCore.Relational": {
-            "target": "Package",
-            "version": "[6.0.9, )"
-          },
-          "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[6.0.9, )"
           },

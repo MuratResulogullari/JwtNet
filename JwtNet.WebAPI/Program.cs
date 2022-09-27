@@ -1,8 +1,8 @@
+using JwtNet.Business.Abstract;
+using JwtNet.DataAccess.Abstract;
+using JwtNet.DataAccess.Concrete.EFCore;
 using JwtNet.WebAPI.Business;
-using JwtNet.WebAPI.Business.Abstract;
 using JwtNet.WebAPI.Business.CurrentUser;
-using JwtNet.WebAPI.Models.Dtos;
-using JwtNet.WebAPI.Models.Entities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,7 +29,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAuthentication();
 //builder.Services.AddSwaggerGen();
 
-// this scopped for services  get stand up when app just have run 
+// this scopped for services and repository  get stand up when app just have run 
+builder.Services.AddScoped<IUserRepository, EFCoreUserRepository>();
+builder.Services.AddScoped<IRoleRepository, EFCoreRoleRepository>();
+builder.Services.AddScoped<IRefreshTokenRepository, EFCoreRefreshTokenRepository>();
+
 builder.Services.AddScoped<IUserService, UserManager>();
 builder.Services.AddScoped<IRoleService, RoleManager>();
 builder.Services.AddScoped<IRefreshTokenService, RefreshTokenManager>();

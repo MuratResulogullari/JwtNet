@@ -1,4 +1,4 @@
-using JwtNet.WebAPI.Models.Dtos;
+using JwtNet.Entities.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

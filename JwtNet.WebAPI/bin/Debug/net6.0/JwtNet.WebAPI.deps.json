@@ -8,13 +8,14 @@
     ".NETCoreApp,Version=v6.0": {
       "JwtNet.WebAPI/1.0.0": {
         "dependencies": {
+          "JwtNet.Business": "1.0.0",
+          "JwtNet.Entities": "1.0.0",
           "Microsoft.AspNet.Cors": "5.2.9",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.9",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.9",
           "Microsoft.EntityFrameworkCore": "6.0.9",
           "Microsoft.EntityFrameworkCore.Design": "6.0.9",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.9",
-          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.9",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.9",
           "Microsoft.IdentityModel.Tokens": "6.23.1",
           "Swashbuckle.AspNetCore": "6.2.3",
@@ -638,6 +639,29 @@
             "fileVersion": "4.700.19.56404"
           }
         }
+      },
+      "JwtNet.Business/1.0.0": {
+        "dependencies": {
+          "JwtNet.DataAccess": "1.0.0",
+          "JwtNet.Entities": "1.0.0"
+        },
+        "runtime": {
+          "JwtNet.Business.dll": {}
+        }
+      },
+      "JwtNet.DataAccess/1.0.0": {
+        "dependencies": {
+          "JwtNet.Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.9"
+        },
+        "runtime": {
+          "JwtNet.DataAccess.dll": {}
+        }
+      },
+      "JwtNet.Entities/1.0.0": {
+        "runtime": {
+          "JwtNet.Entities.dll": {}
+        }
       }
     }
   },
@@ -1101,6 +1125,21 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "JwtNet.Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "JwtNet.DataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "JwtNet.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

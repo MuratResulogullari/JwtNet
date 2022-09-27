@@ -1,0 +1,12 @@
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.Entities\bin\Debug\net6.0\JwtNet.Entities.deps.json
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.Entities\bin\Debug\net6.0\JwtNet.Entities.dll
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.Entities\bin\Debug\net6.0\JwtNet.Entities.pdb
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.Entities\obj\Debug\net6.0\JwtNet.Entities.csproj.AssemblyReference.cache
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.Entities\obj\Debug\net6.0\JwtNet.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.Entities\obj\Debug\net6.0\JwtNet.Entities.AssemblyInfoInputs.cache
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.Entities\obj\Debug\net6.0\JwtNet.Entities.AssemblyInfo.cs
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.Entities\obj\Debug\net6.0\JwtNet.Entities.csproj.CoreCompileInputs.cache
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.Entities\obj\Debug\net6.0\JwtNet.Entities.dll
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.Entities\obj\Debug\net6.0\refint\JwtNet.Entities.dll
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.Entities\obj\Debug\net6.0\JwtNet.Entities.pdb
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.Entities\obj\Debug\net6.0\ref\JwtNet.Entities.dll
