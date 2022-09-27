@@ -8,8 +8,8 @@ export default function LoginView({ user, onLogin, onChange, errors }) {
             <h2 className='title'>Please Log In</h2>
             <form onSubmit={onLogin} className='login-form' >
                 <p className='error'>{errors.loginError}</p>
-                <TextInput id="username" name="username" label="Email" value={user.username} onChange={onChange} error={errors.username} className='input-container' />
-                <TextInput id="password" name="password" label="password" value={user.password} onChange={onChange} error={errors.password} className='input-container' />
+                <TextInput id="username" name="username" label="Email" value={user.username} onChange={onChange} error={errors.username} />
+                <TextInput id="password" name="password" label="password" value={user.password} onChange={onChange} error={errors.password} />
                 <div className='button-container'>
                     <button type="submit" className='button' >Login</button>
                 </div>

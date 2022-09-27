@@ -11,5 +11,6 @@ namespace JwtNet.WebAPI.Models.Entities
         [MaxLength(50)]
         [Required]
         public string RoleName { get; set; }
+        public List<User> Users { get; set; }
     }
 }

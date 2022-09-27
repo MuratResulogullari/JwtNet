@@ -1,7 +1,10 @@
+using JwtNet.WebAPI.Business;
 using JwtNet.WebAPI.Business.Abstract;
 using JwtNet.WebAPI.Business.CurrentUser;
 using JwtNet.WebAPI.Models.Dtos;
+using JwtNet.WebAPI.Models.Entities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -10,6 +13,12 @@ using Swashbuckle.AspNetCore.Filters;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+// Connection Database for migration
+//builder.Services.AddDbContextPool<ApplicationContext>(options => options
+//                        .UseSqlServer("ConnectionStrings:MsSqlConnectionString"));
+
+
+
 
 // Add services to the container.
 

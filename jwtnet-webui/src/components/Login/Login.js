@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import LoginView from './LoginView';
 import './Login.css';
 
-export default function Login({ setToken, loginUser, history, ...props }) {
+export default function Login({ setToken, getToken, history, ...props }) {
 
     //Destructuring assignment
     const [user, setUser] = useState({ ...props.user });
     const [errors, setErrors] = useState({});
+
     useEffect(() => {
         setUser({ ...props.user })
     }, [props.user]
@@ -21,28 +22,29 @@ export default function Login({ setToken, loginUser, history, ...props }) {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-
             },
             body: JSON.stringify(user) // Then request is string
         }
         fetch('https://localhost:7088/api/User/Login', requestInit)
             .then((response) => response.json())
             .then((data) => {
-                if (!data.isSuccess) {
-                    console.error('Error:', data.message);
-                    setErrors(previousErrors => ({ ...previousErrors, loginError: data.message }));
-                    return 0;
+                if (data.isSuccess) {
+                    setToken(data.result);
+                    setErrors(previousErrors => ({ ...previousErrors, loginError: "" }));
+                    return true;
                 }
                 else {
-                    setToken(data);
-                    return 1;
+                    setErrors(previousErrors => ({ ...previousErrors, loginError: data.message }));
+                    setToken(null);
+                    getToken();
+                    return false;
                 }
-
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
     }
+
     /** form elements event for preparete login form  */
     function handleChange(event) {
         const { name, value } = event.target;
@@ -71,10 +73,8 @@ export default function Login({ setToken, loginUser, history, ...props }) {
     const handleLogin = async e => {
         e.preventDefault();
         const result = await loginUser();
-        console.log(result);
-        if (result) {
-            window.location.href = '/home';
-        }
+        if (result)
+            window.location.href = "/";
 
 
     }

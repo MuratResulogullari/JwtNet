@@ -6,15 +6,6 @@ export function loginUserSuccess(resultLogin) {
     return { type: actionTypes.LOGIN_USER_SUCCESS, payload: resultLogin };
 }
 
-// export function getProductById(productId) {
-//     return function (dispatch) {
-//         let url = `http://localhost:3000/products?id=${productId}`;
-//         console.log(url);
-//         return fetch(url).then(response => response.json())
-//             .then(result => dispatch(getProductByIdSuccess(result)));
-//     };
-// }
-
 
 /** API  */
 

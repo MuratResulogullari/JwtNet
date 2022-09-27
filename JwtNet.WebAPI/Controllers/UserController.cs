@@ -55,29 +55,39 @@ namespace JwtNet.WebAPI.Controllers
         /// <param name="loginViewModel"></param>
         /// <returns></returns>
         [HttpPost("Login")]
-        public async Task<ActionResult<string>> Login([FromBody]LoginViewModel loginViewModel)
+        public async Task<ActionResult<string>> Login(LoginViewModel loginViewModel)
         {
+            var requestResult = new ResultViewModel();
             var result = _userService.GetByUserName(loginViewModel.UserName);
             if (!result.IsSuccess)
             {
-                return BadRequest(result);
+                requestResult.IsSuccess = false;
+                requestResult.Result = result;
+                requestResult.Message = "User not found !";
             }
             else
             {
                 User user = (User)result.Result;
                 if (!VerifyPasswordHash(loginViewModel.Password, user.PasswordHash, user.PasswordSalt))
                 {
-                    return BadRequest("Wrong password.");
+                    requestResult.IsSuccess = false;
+                    requestResult.Result = result;
+                    requestResult.Message = "Wrong password !";
                 }
                 else
                 {
                     var newRefreshToken = GenerateRefreshToken();
                     newRefreshToken.Token = CreateToken(user);
                     SetRefreshToken(newRefreshToken, user);
-                    return Ok(newRefreshToken.Token);
+
+                    requestResult.IsSuccess = true;
+                    requestResult.Result = newRefreshToken.Token;
+                    requestResult.Message = "Login Successfull.";
                 }
             }
-           
+            return Ok(requestResult);
+
+
         }
         /// <summary>
         /// Register new user on database
