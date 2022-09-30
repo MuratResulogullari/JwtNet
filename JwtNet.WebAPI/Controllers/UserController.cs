@@ -9,8 +9,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
+using System.Reflection.Metadata.Ecma335;
 using System.Security.Claims;
 using System.Security.Cryptography;
 
@@ -97,7 +99,7 @@ namespace JwtNet.WebAPI.Controllers
         [HttpPost("Register")]
         public async Task<ActionResult<ResultViewModel>> Register(UserDto userDto)
         {
-           var result = new ResultViewModel();
+            var result = new ResultViewModel();
             CreatePasswordHash(userDto.Password, out byte[] passwordHash, out byte[] passwordSalt);
             var newUser = new User
             {
@@ -110,18 +112,18 @@ namespace JwtNet.WebAPI.Controllers
             };
 
             var resultUser = await _userService.CreateAsync(newUser);
-            
+
             if (resultUser.IsSuccess)
             {
-                var  user = (_userService.GetByUserName(userDto.UserName)).Result;
+                var user = (_userService.GetByUserName(userDto.UserName)).Result;
                 var refreshToken = new RefreshToken
                 {
-                    UserId=user.Id,
-                    Token= CreateToken(user),
+                    UserId = user.Id,
+                    Token = CreateToken(user),
                     ExpiryDate = DateTime.Now,
-                    CreatedOn =DateTime.Now,
-                    IsActive=true,
-                    TokenType=1
+                    CreatedOn = DateTime.Now,
+                    IsActive = true,
+                    TokenType = 1
                 };
                 var resultToken = await _refreshTokenService.CreateAsync(refreshToken);
                 result.IsSuccess = resultToken.IsSuccess;
@@ -134,7 +136,7 @@ namespace JwtNet.WebAPI.Controllers
                 result.Result = resultUser.Result;
                 result.Message = result.Message;
             }
-           
+
             return Ok(resultUser);
         }
         /// <summary>
@@ -152,30 +154,30 @@ namespace JwtNet.WebAPI.Controllers
             var resultToken = _refreshTokenService.GetByToken(tokenResponse.RefreshToken);
             if (!resultToken.IsSuccess)
                 return Unauthorized("Invalid Refresh Token.");
-           
-                result.IsSuccess=resultToken.IsSuccess;
-                result.Result = resultToken.Result;
-                result.Message = resultToken.Message;
-                var token = resultToken.Result;
-                string[] properties = { "Role" };
-                var userResult = await _userService.FirstOrDefaultAsync(x => x.Id == token.UserId && x.IsActive, properties);
-                if (!userResult.IsSuccess)
-                    return Unauthorized("Invalid Refresh Token.");
 
-                var newRefreshToken = GenerateRefreshToken();
-                newRefreshToken.Token = CreateToken(userResult.Result);
-                SetRefreshToken(newRefreshToken,userResult.Result);
+            result.IsSuccess = resultToken.IsSuccess;
+            result.Result = resultToken.Result;
+            result.Message = resultToken.Message;
+            var token = resultToken.Result;
+            string[] properties = { "Role" };
+            var userResult = await _userService.FirstOrDefaultAsync(x => x.Id == token.UserId && x.IsActive, properties);
+            if (!userResult.IsSuccess)
+                return Unauthorized("Invalid Refresh Token.");
+
+            var newRefreshToken = GenerateRefreshToken();
+            newRefreshToken.Token = CreateToken(userResult.Result);
+            SetRefreshToken(newRefreshToken, userResult.Result);
             result.IsSuccess = true;
-            result.Result=newRefreshToken.Token;
+            result.Result = newRefreshToken.Token;
             result.Message = "token is refresh";
-            return Ok(result);          
+            return Ok(result);
         }
         /// <summary>
         ///  create json web token and return jwt token
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        private  string CreateToken(User user)
+        private string CreateToken(User user)
         {
             List<Claim> claims = new List<Claim>
             {
@@ -197,7 +199,6 @@ namespace JwtNet.WebAPI.Controllers
 
             return jwtToken;
         }
-
         /// <summary>
         /// create new token with  random token for dont not result  null
         /// </summary>
@@ -213,14 +214,13 @@ namespace JwtNet.WebAPI.Controllers
 
             return refreshToken;
         }
-        
         /// <summary>
         /// token add database and cookies
         /// </summary>
         /// <param name="refreshToken"></param>
         /// <param name="user"></param>
-        private async void SetRefreshToken(RefreshToken refreshToken,User user)
-        {   
+        private async void SetRefreshToken(RefreshToken refreshToken, User user)
+        {
             var cookieOptions = new CookieOptions
             {
                 HttpOnly = true,
@@ -236,7 +236,7 @@ namespace JwtNet.WebAPI.Controllers
                 newRefreshToken.CreatedOn = refreshToken.CreatedOn;
                 newRefreshToken.ExpiryDate = refreshToken.ExpiryDate;
                 newRefreshToken.IsActive = true;
-                var resultUpd = await  _refreshTokenService.UpdateAsync(newRefreshToken);
+                var resultUpd = await _refreshTokenService.UpdateAsync(newRefreshToken);
             }
         }
         /// <summary>
@@ -268,6 +268,80 @@ namespace JwtNet.WebAPI.Controllers
                 return computedHash.SequenceEqual(passwordHash);
             }
         }
+        [HttpPost("CreateRole")]
+        public async Task<ActionResult<ResultViewModel>> CreateRole(RoleViewModel roleViewModel)
+        {
+            var resultRequest = new ResultViewModel();
+            var role = new Role
+            {
+                Id = roleViewModel.Id,
+                RoleName = roleViewModel.RoleName,
+                CreatedOn = DateTime.Now,
+                IsActive = roleViewModel.IsActive
 
+            };
+            var result = await _roleService.CreateAsync(role);
+            resultRequest.IsSuccess = result.IsSuccess;
+            resultRequest.Message = result.Message;
+            resultRequest.Result = result.Result;
+            return resultRequest;
+        }
+        [HttpPut("UpdateRole")]
+        public async Task<ActionResult<ResultViewModel>> UpdateRole(RoleViewModel roleViewModel)
+        {
+            var resultRequest = new ResultViewModel();
+            var role = new Role
+            {
+                Id = roleViewModel.Id,
+                RoleName = roleViewModel.RoleName,
+                CreatedOn = DateTime.Now,
+                IsActive = roleViewModel.IsActive
+
+            };
+            var result = await _roleService.UpdateAsync(role);
+            resultRequest.IsSuccess = result.IsSuccess;
+            resultRequest.Message = result.Message;
+            resultRequest.Result = result.Result;
+            return resultRequest;
+        }
+        [HttpDelete("DeleteRole")]
+        public async Task<ActionResult<ResultViewModel>> DeleteRole(RoleViewModel roleViewModel)
+        {
+            var resultRequest = new ResultViewModel();
+            var role = new Role
+            {
+                Id = roleViewModel.Id,
+                RoleName = roleViewModel.RoleName,
+                CreatedOn = DateTime.Now,
+                IsActive = roleViewModel.IsActive
+
+            };
+            var result = await _roleService.DeleteAsync(role);
+            resultRequest.IsSuccess = result.IsSuccess;
+            resultRequest.Message = result.Message;
+            resultRequest.Result = result.Result;
+            return resultRequest;
+        }
+        [HttpGet("GetRoleById/{id}")]
+        public async Task<ActionResult<ResultViewModel>> GetRoleById(int id)
+        {
+            var resultRequest = new ResultViewModel();
+            string[] properties = { "" };
+            var result = await _roleService.FirstOrDefaultAsync(x => x.Id == id && x.IsActive, properties);
+            resultRequest.IsSuccess = result.IsSuccess;
+            resultRequest.Message = result.Message;
+            resultRequest.Result = result.Result;
+            return resultRequest;
+        }
+        [HttpGet("GetRoles")]
+        public async Task<ActionResult<ResultViewModel>> GetRoles()
+        {
+            var resultRequest = new ResultViewModel();
+            var result = await _roleService.GetAllAsync();
+            resultRequest.IsSuccess = result.IsSuccess;
+            resultRequest.Message = result.Message;
+            resultRequest.Result = result.Result;
+            return resultRequest;
+        }
     }
 }

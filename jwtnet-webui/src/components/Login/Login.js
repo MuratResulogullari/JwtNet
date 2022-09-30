@@ -31,13 +31,11 @@ export default function Login({ setToken, getToken, history, ...props }) {
                 if (data.isSuccess) {
                     setToken(data.result);
                     setErrors(previousErrors => ({ ...previousErrors, loginError: "" }));
-                    return true;
+                    window.location.href = "/";
                 }
                 else {
                     setErrors(previousErrors => ({ ...previousErrors, loginError: data.message }));
                     setToken(null);
-                    getToken();
-                    return false;
                 }
             })
             .catch((error) => {
@@ -72,9 +70,8 @@ export default function Login({ setToken, getToken, history, ...props }) {
     }
     const handleLogin = async e => {
         e.preventDefault();
-        const result = await loginUser();
-        if (result)
-            window.location.href = "/";
+        await loginUser();
+
 
 
     }

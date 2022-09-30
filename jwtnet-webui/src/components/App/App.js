@@ -6,6 +6,9 @@ import Preferences from '../preferences/Preferences';
 import DashBoard from '../dashboard/DashBoard';
 import Login from '../login/Login';
 import Home from '../home/Home';
+import Roles from '../role/Roles';
+import CreateRole from '../role/CreateRole';
+import Header from './Header';
 
 function setToken(userToken) {
   sessionStorage.setItem('token', JSON.stringify(userToken));
@@ -22,13 +25,16 @@ function App() {
   }
   return (
     <>
+      <Header />
       <div className="wrapper">
-        <h1>Application</h1>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/dashboard" element={<DashBoard />} />
           <Route exact path="/preferences" element={<Preferences />} />
+          <Route exact path="/roles" element={<Roles />} />
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/saverole" element={<CreateRole />} />
+          <Route exact path="/saverole/:roleId" element={<CreateRole />} />
           <Route path="*" element={<NotPage />} />
         </Routes>
       </div>

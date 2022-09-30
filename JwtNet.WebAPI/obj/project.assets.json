@@ -2952,11 +2952,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj",
       "projectName": "JwtNet.WebAPI",
-      "projectPath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj",
+      "projectPath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj",
       "packagesPath": "C:\\Users\\gül\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\obj\\",
+      "outputPath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2977,11 +2977,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Business\\JwtNet.Business.csproj": {
-              "projectPath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Business\\JwtNet.Business.csproj"
+            "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Business\\JwtNet.Business.csproj": {
+              "projectPath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Business\\JwtNet.Business.csproj"
             },
-            "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj": {
-              "projectPath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj"
+            "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj": {
+              "projectPath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj"
             }
           }
         }

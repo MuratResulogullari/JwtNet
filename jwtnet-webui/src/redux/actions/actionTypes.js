@@ -1,3 +1,12 @@
-
+/** Error */
+export const GET_ERROR_SUCCESS = "GET_ERROR_SUCCESS";
 /**Login Actions */
 export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
+
+
+/**Role Actions  */
+export const GET_ROLES_SUCCESS = "GET_ROLES_SUCCESS";
+export const CREATE_ROLE_SUCCESS = "CREATE_ROLE_SUCCESS";
+export const UPDATE_ROLE_SUCCESS = "UPDATE_ROLE_SUCCESS";
+export const DELETE_ROLE_SUCCESS = "DELETE_ROLE_SUCCESS";
+export const GET_ROLE_BY_ID_SUCCESS = "GET_ROLE_BY_ID_SUCCESS";

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1RmbRKQqnMI7EJF/GSDm+6qUdlIQ3z6/Ohl2C0eSe9bZ6Sk2XzW6n8FJZG979V3P5HdDw0TUeDJpg4z3Sgfcyg==",
+  "dgSpecHash": "I6+K1aBg+2EARJ1Eg8N+bK5RmkRfSx325t0CQlS23PppzKz5OMzbWS+MI53YgPMBxdgNXqk/EB9+YnuFoPgebA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Business\\JwtNet.Business.csproj",
+  "projectFilePath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Business\\JwtNet.Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gül\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\gül\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

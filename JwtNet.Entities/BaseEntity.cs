@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace JwtNet.Entities.DbModels
+namespace JwtNet.Entities
 {
     public class BaseEntity
     {

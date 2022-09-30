@@ -1932,11 +1932,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.DataAccess\\JwtNet.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.DataAccess\\JwtNet.DataAccess.csproj",
       "projectName": "JwtNet.DataAccess",
-      "projectPath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.DataAccess\\JwtNet.DataAccess.csproj",
+      "projectPath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.DataAccess\\JwtNet.DataAccess.csproj",
       "packagesPath": "C:\\Users\\gül\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1957,8 +1957,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj": {
-              "projectPath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj"
+            "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj": {
+              "projectPath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj"
             }
           }
         }

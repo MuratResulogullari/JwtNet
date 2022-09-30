@@ -32,11 +32,16 @@ export async function handleResponse(response) {
     if (response.ok) {
         return response.json();
     }
-    const error = await response.text()
-    throw new Error(error);
+    else {
+        if (response.status === 401) {
+            console.log("logout");
+            return
+        }
+        const errorMessage = await response.status + ' ' + response.statusText + ' ' + response.text;
+        throw new Error(errorMessage);
+    }
 }
 export function handleError(error) {
     console.error("Resulted error : " + error);
-
     throw error;
 }
