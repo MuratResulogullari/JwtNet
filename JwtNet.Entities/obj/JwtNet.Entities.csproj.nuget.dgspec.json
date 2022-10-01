@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj": {}
+    "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj": {
+    "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj",
+        "projectUniqueName": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj",
         "projectName": "JwtNet.Entities",
-        "projectPath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj",
+        "projectPath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\JwtNet.Entities.csproj",
         "packagesPath": "C:\\Users\\gül\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\obj\\",
+        "outputPath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

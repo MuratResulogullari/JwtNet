@@ -9,7 +9,7 @@ namespace JwtNet.DataAccess.Concrete.EFCore.Database
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source=localhost; Initial Catalog=Application; User Id=sa; Password=sa@123");
+            optionsBuilder.UseSqlServer("Data Source=localhost; Initial Catalog=JwtNetDb; User Id=sa; Password=sa@123");
         }
         
         public DbSet<User> Users { get; set; }

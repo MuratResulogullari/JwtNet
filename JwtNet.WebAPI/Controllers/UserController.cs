@@ -94,19 +94,21 @@ namespace JwtNet.WebAPI.Controllers
         /// <summary>
         /// Register new user on database
         /// </summary>
-        /// <param name="userDto"></param>
+        /// <param name="userViewModel"></param>
         /// <returns></returns>
         [HttpPost("Register")]
-        public async Task<ActionResult<ResultViewModel>> Register(UserDto userDto)
+        public async Task<ActionResult<ResultViewModel>> Register(UserViewModel userViewModel)
         {
             var result = new ResultViewModel();
-            CreatePasswordHash(userDto.Password, out byte[] passwordHash, out byte[] passwordSalt);
+            CreatePasswordHash(userViewModel.Password, out byte[] passwordHash, out byte[] passwordSalt);
             var newUser = new User
             {
-                UserName = userDto.UserName,
+                Name=userViewModel.Name,
+                Surname=userViewModel.Surname,
+                UserName = userViewModel.Email,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
-                RoleId = 1,
+                RoleId =userViewModel.RoleId,
                 CreatedOn = DateTime.Now,
                 IsActive = true
             };
@@ -115,7 +117,7 @@ namespace JwtNet.WebAPI.Controllers
 
             if (resultUser.IsSuccess)
             {
-                var user = (_userService.GetByUserName(userDto.UserName)).Result;
+                var user = (_userService.GetByUserName(userViewModel.Email)).Result;
                 var refreshToken = new RefreshToken
                 {
                     UserId = user.Id,
@@ -268,7 +270,8 @@ namespace JwtNet.WebAPI.Controllers
                 return computedHash.SequenceEqual(passwordHash);
             }
         }
-        [HttpPost("CreateRole")]
+
+        [HttpPost("CreateRole"), Authorize(Roles = "Admin")]
         public async Task<ActionResult<ResultViewModel>> CreateRole(RoleViewModel roleViewModel)
         {
             var resultRequest = new ResultViewModel();
@@ -286,7 +289,7 @@ namespace JwtNet.WebAPI.Controllers
             resultRequest.Result = result.Result;
             return resultRequest;
         }
-        [HttpPut("UpdateRole")]
+        [HttpPut("UpdateRole"), Authorize(Roles = "Admin")]
         public async Task<ActionResult<ResultViewModel>> UpdateRole(RoleViewModel roleViewModel)
         {
             var resultRequest = new ResultViewModel();
@@ -304,7 +307,7 @@ namespace JwtNet.WebAPI.Controllers
             resultRequest.Result = result.Result;
             return resultRequest;
         }
-        [HttpDelete("DeleteRole")]
+        [HttpDelete("DeleteRole"), Authorize(Roles = "Admin")]
         public async Task<ActionResult<ResultViewModel>> DeleteRole(RoleViewModel roleViewModel)
         {
             var resultRequest = new ResultViewModel();
@@ -322,7 +325,7 @@ namespace JwtNet.WebAPI.Controllers
             resultRequest.Result = result.Result;
             return resultRequest;
         }
-        [HttpGet("GetRoleById/{id}")]
+        [HttpGet("GetRoleById/{id}"), Authorize(Roles = "Admin")]
         public async Task<ActionResult<ResultViewModel>> GetRoleById(int id)
         {
             var resultRequest = new ResultViewModel();
@@ -343,5 +346,59 @@ namespace JwtNet.WebAPI.Controllers
             resultRequest.Result = result.Result;
             return resultRequest;
         }
+        [HttpPut("UpdateUser"), Authorize(Roles = "Admin")]
+        public async Task<ActionResult<ResultViewModel>> UpdateUser(UserViewModel userViewModel)
+        {
+            var resultRequest = new ResultViewModel();
+            var user = new User
+            {
+
+                CreatedOn = DateTime.Now,
+                IsActive = true
+
+            };
+            var result = await _userService.UpdateAsync(user);
+            resultRequest.IsSuccess = result.IsSuccess;
+            resultRequest.Message = result.Message;
+            resultRequest.Result = result.Result;
+            return resultRequest;
+        }
+        [HttpDelete("DeleteRole"), Authorize(Roles = "Admin")]
+        public async Task<ActionResult<ResultViewModel>> DeleteRole(UserViewModel userViewModel)
+        {
+            var resultRequest = new ResultViewModel();
+            var user = new User
+            {
+                CreatedOn = DateTime.Now,
+                IsActive = true
+            };
+            var result = await _userService.DeleteAsync(user);
+            resultRequest.IsSuccess = result.IsSuccess;
+            resultRequest.Message = result.Message;
+            resultRequest.Result = result.Result;
+            return resultRequest;
+        }
+        [HttpGet("GetUserById/{id}")]
+        public async Task<ActionResult<ResultViewModel>> GetUserById(int id)
+        {
+            var resultRequest = new ResultViewModel();
+            string[] properties = { "Role" };
+            var result = await _userService.FirstOrDefaultAsync(x => x.Id == id && x.IsActive, properties);
+            resultRequest.IsSuccess = result.IsSuccess;
+            resultRequest.Message = result.Message;
+            resultRequest.Result = result.Result;
+            return resultRequest;
+        }
+        [HttpGet("GetUsers"), Authorize(Roles = "Admin")]
+        public async Task<ActionResult<ResultViewModel>> GetUsers()
+        {
+            var resultRequest = new ResultViewModel();
+            var result = await _roleService.GetAllAsync();
+            resultRequest.IsSuccess = result.IsSuccess;
+            resultRequest.Message = result.Message;
+            resultRequest.Result = result.Result;
+            return resultRequest;
+        }
+
     }
 }

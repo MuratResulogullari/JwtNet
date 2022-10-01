@@ -8,6 +8,12 @@ namespace JwtNet.Entities.DbModels
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [Required(ErrorMessage = "str_name_required")]
+        [MaxLength(50, ErrorMessage = "str_max50_char")]
+        public string Name { get; set; }
+        [Required(ErrorMessage = "str_surname_required")]
+        [MaxLength(50, ErrorMessage = "str_max50_char")]
+        public string Surname { get; set; }
         [Required]
         [ForeignKey(nameof(Role))]
         public int RoleId { get; set; }

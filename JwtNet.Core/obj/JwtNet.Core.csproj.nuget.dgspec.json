@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Core\\JwtNet.Core.csproj": {}
+    "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Core\\JwtNet.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Core\\JwtNet.Core.csproj": {
+    "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Core\\JwtNet.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Core\\JwtNet.Core.csproj",
+        "projectUniqueName": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Core\\JwtNet.Core.csproj",
         "projectName": "JwtNet.Core",
-        "projectPath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Core\\JwtNet.Core.csproj",
+        "projectPath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Core\\JwtNet.Core.csproj",
         "packagesPath": "C:\\Users\\gül\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Core\\obj\\",
+        "outputPath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

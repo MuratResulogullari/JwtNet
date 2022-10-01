@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iEHacTDqp3/dwhQh5MTJvQrz9uhv9kdKHFv5QA8uzj4L3F4fzuAmQRtWLKEXwKud5vIV4jjPqqfc95ErHs4uIg==",
+  "dgSpecHash": "04VYyuCwDV+1qMM0+ZMYOs0Glcofnhbohjo7yHtxrgKNyfSBvN+Xdc9ibd3AJXlZhWK7fB2kJVfDSmEKPCWwkw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj",
+  "projectFilePath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.WebAPI\\JwtNet.WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gül\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\gül\\.nuget\\packages\\microsoft.aspnet.cors\\5.2.9\\microsoft.aspnet.cors.5.2.9.nupkg.sha512",
@@ -19,7 +19,6 @@
     "C:\\Users\\gül\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.9\\microsoft.entityframeworkcore.design.6.0.9.nupkg.sha512",
     "C:\\Users\\gül\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.9\\microsoft.entityframeworkcore.relational.6.0.9.nupkg.sha512",
     "C:\\Users\\gül\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.9\\microsoft.entityframeworkcore.sqlserver.6.0.9.nupkg.sha512",
-    "C:\\Users\\gül\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\6.0.9\\microsoft.entityframeworkcore.tools.6.0.9.nupkg.sha512",
     "C:\\Users\\gül\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\gül\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\gül\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.1\\microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",

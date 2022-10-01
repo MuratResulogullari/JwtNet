@@ -13,3 +13,5 @@ C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\obj\Debug\net6.0\JwtNet.
 C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\obj\Debug\net6.0\refint\JwtNet.DataAccess.dll
 C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\obj\Debug\net6.0\JwtNet.DataAccess.pdb
 C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\obj\Debug\net6.0\ref\JwtNet.DataAccess.dll
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\bin\Debug\net6.0\JwtNet.DataAccess.runtimeconfig.json
+C:\Users\gül\Documents\GitHub\JwtNet\JwtNet.DataAccess\obj\Debug\net6.0\JwtNet.DataAccess.genruntimeconfig.cache

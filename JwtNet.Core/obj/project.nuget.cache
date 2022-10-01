@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OSxpltZ35mOBPwCKFE5xTWHG7Av36EzfH7qYIah7J2SqXT0OgRjPjEDjRA6U/Q1vPRbtBmWOFPAUTRfHafKhXg==",
+  "dgSpecHash": "VAkwe75jUFvM2+N0Er4Toqtf5zJDhOCxS8G+s3gmZlNk6XCL38ZRU0i2x/FxPTxBeU6OQTu/VIQEPTNZLA6xKw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Core\\JwtNet.Core.csproj",
+  "projectFilePath": "c:\\Users\\gül\\Documents\\GitHub\\JwtNet\\JwtNet.Core\\JwtNet.Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
