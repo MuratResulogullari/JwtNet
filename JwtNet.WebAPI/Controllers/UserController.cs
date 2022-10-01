@@ -103,12 +103,12 @@ namespace JwtNet.WebAPI.Controllers
             CreatePasswordHash(userViewModel.Password, out byte[] passwordHash, out byte[] passwordSalt);
             var newUser = new User
             {
-                Name=userViewModel.Name,
-                Surname=userViewModel.Surname,
+                Name = userViewModel.Name,
+                Surname = userViewModel.Surname,
                 UserName = userViewModel.Email,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
-                RoleId =userViewModel.RoleId,
+                RoleId = userViewModel.RoleId,
                 CreatedOn = DateTime.Now,
                 IsActive = true
             };
@@ -139,7 +139,7 @@ namespace JwtNet.WebAPI.Controllers
                 result.Message = result.Message;
             }
 
-            return Ok(resultUser);
+            return Ok(result);
         }
         /// <summary>
         /// If you send old token, this  get you new token 
@@ -271,7 +271,7 @@ namespace JwtNet.WebAPI.Controllers
             }
         }
 
-        [HttpPost("CreateRole"), Authorize(Roles = "Admin")]
+        [HttpPost("CreateRole")]
         public async Task<ActionResult<ResultViewModel>> CreateRole(RoleViewModel roleViewModel)
         {
             var resultRequest = new ResultViewModel();
@@ -350,9 +350,15 @@ namespace JwtNet.WebAPI.Controllers
         public async Task<ActionResult<ResultViewModel>> UpdateUser(UserViewModel userViewModel)
         {
             var resultRequest = new ResultViewModel();
+            CreatePasswordHash(userViewModel.Password, out byte[] passwordHash, out byte[] passwordSalt);
             var user = new User
             {
-
+                Name = userViewModel.Name,
+                Surname = userViewModel.Surname,
+                UserName = userViewModel.Email,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                RoleId = userViewModel.RoleId,
                 CreatedOn = DateTime.Now,
                 IsActive = true
 
@@ -363,15 +369,11 @@ namespace JwtNet.WebAPI.Controllers
             resultRequest.Result = result.Result;
             return resultRequest;
         }
-        [HttpDelete("DeleteRole"), Authorize(Roles = "Admin")]
-        public async Task<ActionResult<ResultViewModel>> DeleteRole(UserViewModel userViewModel)
+        [HttpDelete("DeleteUser"), Authorize(Roles = "Admin")]
+        public async Task<ActionResult<ResultViewModel>> DeleteUser(UserViewModel userViewModel)
         {
             var resultRequest = new ResultViewModel();
-            var user = new User
-            {
-                CreatedOn = DateTime.Now,
-                IsActive = true
-            };
+            var user = (await _userService.FindAsync(userViewModel.Id)).Result;
             var result = await _userService.DeleteAsync(user);
             resultRequest.IsSuccess = result.IsSuccess;
             resultRequest.Message = result.Message;
@@ -389,11 +391,11 @@ namespace JwtNet.WebAPI.Controllers
             resultRequest.Result = result.Result;
             return resultRequest;
         }
-        [HttpGet("GetUsers"), Authorize(Roles = "Admin")]
+        [HttpGet("GetUsers")]
         public async Task<ActionResult<ResultViewModel>> GetUsers()
         {
             var resultRequest = new ResultViewModel();
-            var result = await _roleService.GetAllAsync();
+            var result = await _userService.GetAllAsync();
             resultRequest.IsSuccess = result.IsSuccess;
             resultRequest.Message = result.Message;
             resultRequest.Result = result.Result;

@@ -30,41 +30,37 @@ class Roles extends Component {
     }
     renderRoles() {
         return (
-            <div className='container'>
-                <div className='header d-flex justify-content-between'>
-                    <div><h2>Role Managment</h2></div>
-                    <div><Link className='btn btn-outline-success' to={"/saverole"}>New Role</Link></div>
-                </div>
-                <div className='body'>
-                    <table className='table'>
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Role</th>
-                                <th>Active</th>
-                                <th>CreateOn</th>
-                                <th>Process</th>
-                            </tr>
-                        </thead>
-                        <tbody className='table-group-divider'>
-                            {this.props.roles.map((role) => (
-                                <tr key={role.id}>
-                                    <td>{role.id}</td>
-                                    <td>{role.roleName}</td>
-                                    <td>{role.isActive.toString()}</td>
-                                    <td>{role.createdOn}</td>
-                                    <td className=' d-flex justify-content-around'>
-                                        <button className='btn btn-outline-secondary' onClick={() => this.getRoleById(role)}><i className='fa-thin fa-eye'></i></button>
-                                        <Link className='btn btn-outline-warning' to={"/saverole/" + role.id}><i className='fa-thin fa-pen-to-square'></i></Link>
-                                        <button className='btn btn-outline-danger' onClick={() => this.deleteRole(role)}><i className='fa-thin fa-xmark'></i></button>
 
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </div >
+            <div className='body'>
+                <table className='table'>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Role</th>
+                            <th>Active</th>
+                            <th>CreateOn</th>
+                            <th>Process</th>
+                        </tr>
+                    </thead>
+                    <tbody className='table-group-divider'>
+                        {this.props.roles.map((role) => (
+                            <tr key={role.id}>
+                                <td>{role.id}</td>
+                                <td>{role.roleName}</td>
+                                <td>{role.isActive.toString()}</td>
+                                <td>{role.createdOn}</td>
+                                <td className=' d-flex justify-content-around'>
+                                    <button className='btn btn-outline-secondary' onClick={() => this.getRoleById(role)}><i className='fa-thin fa-eye'></i></button>
+                                    <Link className='btn btn-outline-warning' to={"/saverole/" + role.id}><i className='fa-thin fa-pen-to-square'></i></Link>
+                                    <button className='btn btn-outline-danger' onClick={() => this.deleteRole(role)}><i className='fa-thin fa-xmark'></i></button>
+
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+
         )
     }
     renderEmpty() {
@@ -78,7 +74,11 @@ class Roles extends Component {
     }
     render() {
         return (
-            <div>
+            <div className='container'>
+                <div className='d-flex justify-content-between'>
+                    <div><h2>Role Managment</h2></div>
+                    <div><Link className='btn btn-outline-success' to={"/saverole"}>New Role</Link></div>
+                </div>
                 {this.props.roles.length > 0 ? this.renderRoles() : this.renderEmpty()}
             </div>
         )

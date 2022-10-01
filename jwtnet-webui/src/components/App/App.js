@@ -9,6 +9,8 @@ import Home from '../home/Home';
 import Roles from '../role/Roles';
 import CreateRole from '../role/CreateRole';
 import Header from './Header';
+import CreateUser from '../user/CreateUser';
+import Users from '../user/Users';
 
 function setToken(userToken) {
   sessionStorage.setItem('token', JSON.stringify(userToken));
@@ -35,6 +37,9 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/saverole" element={<CreateRole />} />
           <Route exact path="/saverole/:roleId" element={<CreateRole />} />
+          <Route exact path="/users" element={<Users />} />
+          <Route exact path="/saveuser" element={<CreateUser />} />
+          <Route exact path="/saveuser/:userId" element={<CreateUser />} />
           <Route path="*" element={<NotPage />} />
         </Routes>
       </div>

@@ -5,5 +5,8 @@ export default {
     pagePerCount: 10,
     roles: [],
     role: {},
-    roleId: 0
+    roleId: 0,
+    users: [],
+    user: {}
+
 }

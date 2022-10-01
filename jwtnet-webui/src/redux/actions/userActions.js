@@ -15,11 +15,9 @@ export function deleteUserSuccess(user) {
 export const getUsersSuccess = (users) => {
     return { type: actionTypes.GET_USERS_SUCCESS, payload: users };
 }
-
 export function getUserByIdSuccess(user) {
     return { type: actionTypes.GET_USER_BY_ID_SUCCESS, payload: user }
 }
-
 export const getUsers = () => {
     return async (dispatch) => {
         var url = 'https://localhost:7088/api/User/GetUsers';
@@ -28,16 +26,14 @@ export const getUsers = () => {
                 return dispatch(getUsersSuccess(data.result))
             }
             else {
-                var error = data.message;
                 console.log("getUsers", error);
             }
         }).catch(handleError)
     }
 }
-export const getRoleById = (roleId) => {
-    console.log("getRoleById ", roleId);
+export const getUserById = (userId) => {
     return async function (dispatch) {
-        var url = 'https://localhost:7088/api/User/getRoleById/' + roleId;
+        var url = 'https://localhost:7088/api/User/getUserById/' + userId;
         apiFetch(url).then(data => {
             if (data.isSuccess) {
                 return dispatch(getUserByIdSuccess(data.result))
@@ -49,15 +45,14 @@ export const getRoleById = (roleId) => {
         }).catch(handleError);
     }
 }
-export const createRole = (user) => {
-    debugger;
+export const createUser = (user) => {
     return async (dispatch) => {
-        var url = 'https://localhost:7088/api/User/CreateRole';
+        var url = 'https://localhost:7088/api/User/Register';
         await apiFetch(url, 'POST', user)
             .then(data => {
-
                 if (data.isSuccess) {
                     return dispatch(createUserSuccess(data.result))
+
                 }
                 else {
                     var error = data.message;
@@ -67,13 +62,13 @@ export const createRole = (user) => {
     }
 }
 export const updateUser = (user) => {
-    debugger;
     return async (dispatch) => {
         var url = 'https://localhost:7088/api/User/UpdateUser';
         await apiFetch(url, 'PUT', user)
             .then(data => {
                 if (data.isSuccess) {
-                    return dispatch(updateUserSuccess(data.result))
+                    sessionStorage.setItem('token', JSON.stringify(data.result));
+                    return dispatch(updateUserSuccess(data.result));
                 }
                 else {
                     var error = data.message;

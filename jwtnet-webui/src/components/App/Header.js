@@ -2,7 +2,12 @@ import React, { Component } from 'react'
 import './Header.css'
 
 export default class Header extends Component {
+
     render() {
+        const logout = () => {
+            sessionStorage.setItem('token', null);
+            window.location.href = "/";
+        }
         return (
             <div className='header'>
                 <nav class=" navbar navbar-expand-lg ">
@@ -27,10 +32,9 @@ export default class Header extends Component {
                                         Account
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="/login">login</a></li>
                                         <li><hr class="dropdown-divider" /></li>
-                                        <li><a class="dropdown-item" href="#">logout</a></li>
+                                        <li><a class="dropdown-item" onClick={logout}>logout</a></li>
                                     </ul>
                                 </li>
 

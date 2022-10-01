@@ -52,11 +52,14 @@ function CreateRole({
     }
     const handleSubmit = async e => {
         e.preventDefault();
+        const result = false;
         if (role.id > 0) {
-            updateRole(role);
+            result = updateRole(role);
         } else {
-            createRole(role);
+            result = createRole(role);
         }
+        if (result)
+            window.location.href = "/users";
     }
     return (
         <div className="login-wrapper app">
@@ -64,8 +67,6 @@ function CreateRole({
             <form onSubmit={handleSubmit} className='login-form' >
                 <p className='error'>{errors.loginError}</p>
                 <TextInput id="roleName" name="roleName" label="Role Name" value={role.roleName} onChange={handleChange} error={errors.roleName} />
-                <TextInput id="createdOn" name="createdOn" label="Date" type='datetime-local' value={role.createdOn} onChange={handleChange} error={errors.createdOn} />
-                <TextInput id="isActive" name="isActive" label="Is Active" type='checkbox' value={role.isActive == 0 ? true : false} onChange={handleChange} error={errors.isActive} />
                 <div className='button-container'>
                     <button type="submit" className='button' >Save</button>
                 </div>
